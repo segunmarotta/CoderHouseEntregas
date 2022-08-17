@@ -1,6 +1,6 @@
 alert("Complete el siguiente formulario para obtener su tarjeta de credito de nuestro banco")
 
-
+console.log(segun)
 
 for (let i = 0; i < 3; i++){
     const firstName = prompt("ingrese usuario");
