@@ -2,9 +2,6 @@ alert("Complete el siguiente formulario para obtener su tarjeta de credito de nu
 
 
 
-//const firstName = prompt("Ingrese su Nombre");
-//const lastName = prompt("Ingrese su apellido");
-.
 for (let i = 0; i < 3; i++){
     const firstName = prompt("ingrese usuario");
     const lastName = prompt("ingrese contrasena");
