@@ -5,14 +5,15 @@ let lastName;
 let documento; 
 
 for (let i = 0; i < 3; i++){
-    firstName = prompt("ingrese usuario");
-    lastName = prompt("ingrese contrasena");
+    firstName = prompt("Ingrese usuario");
+    lastName = prompt("Ingrese contrasena");
     documento = parseInt(prompt("Ingrese su numero de documento"));
     if (firstName != "" && lastName != "" && documento !=""){
         function firstlastName(){
             return "Nombre y Apellido: " + firstName + " " + lastName + "\n" + "Docuemnto: " + documento;
         }
         alert(firstlastName())
+        console.log(firstlastName())
         break;
     }else {
         console.log("Por favor complete todos los campos. Intente de nuevo le quedan", 2 - i);
@@ -33,91 +34,77 @@ if (estadoCivil == "casado"
             for (index = 1; index <= family; index++){
             let nameHijos = prompt("Ingrese nombre de su hijo N" + index)     
             }
-        } else if (family > 10){
-            console.log("No le podremos dar tarjeta");
-            alert("No le podremos dar tarjeta");
-        }  
+        }
     }
 
+console.log("Estado Civil =", estadoCivil); //para que en la consola muestre cada valor
+console.log("Cantidad de Hijos =", family); //para que en la consola muestre cada valor
 
-    const income = parseInt(prompt("Ingrese su sueldo neto mensual en USD"));
-    const gastos = parseInt(prompt("gastos"));
-    let cupo;
-    let cantidadDeTarjetas;
-    const creditCard = prompt("Tiene tarjeta de credito de otros bancos?");
-    if (creditCard == "yes"
+
+const income = parseInt(prompt("Ingrese su sueldo neto mensual en USD"));
+const gastos = parseInt(prompt("gastos"));
+let cupo;
+let cantidadDeTarjetas;
+const creditCard = prompt("Tiene tarjeta de credito de otros bancos?");
+if (creditCard == "yes"
     || creditCard == "Yes" 
     || creditCard == "si"
     || creditCard == "Si") {
         cantidadDeTarjetas = parseInt(prompt("Cuantas tarjetas ya tiene?"));
-        if (cantidadDeTarjetas <= 5){
-            cupo = parseInt(prompt("Ingrese el cupo total (Suma de todos los limites de sus tarjetas)"));          
-        }else if (cantidadDeTarjetas > 5){
-            console.log("No le podremos dar tarjeta");
-            alert("No le podremos dar tarjeta");
-        }
+        cupo = parseInt(prompt("Ingrese el cupo total (Suma de todos los limites de sus tarjetas)"));
     }
 
+console.log("Ingreso =", income); //para que en la consola muestre cada valor
+console.log("Gastos =", gastos); //para que en la consola muestre cada valor
+console.log("Cantidad de tarjetas =", cantidadDeTarjetas); //para que en la consola muestre cada valor
+console.log("Cupo tarjetas =", cupo); //para que en la consola muestre cada valor
 
-    const job = prompt("Trabajas en relacion de dependencia?");
-    const activity = prompt("Tipo de trabajo");
 
-    if((job == "si" && income < 1000)
+const job = prompt("Trabajas en relacion de dependencia?");
+const activity = prompt("Tipo de trabajo");
+
+console.log("Relacion de dependencia =", job); //para que en la consola muestre cada valor
+console.log("Actividad =", activity); //para que en la consola muestre cada valor
+
+
+
+if((job == "si" && income < 1000)
     || (job == "Si" && income < 1000)
     || (job == "yes" && income < 1000)
     || (job == "Yes" && income < 1000)){
-        console.log("No le podremos dar tarjetas.");
-        alert("No le podremos dar tarjetas.");
-    }else if (job =="si" && gastos >= income) {
-        console.log("No le podremos dar tarjetas ya que sus gastos son iguales o mayores a sus ingresos.");
-        alert("No le podremos dar tarjetas ya que sus gastos son iguales o mayores a sus ingresos.");   
-    }else if (cupo < income*2) {
-        console.log("No le podremos dar tarjetas ya que su cupo es menor a sus ingresos x2.");
-        alert("No le podremos dar tarjetas ya que su cupo es menor a sus ingresos x2.");
-    }else if (job == "no" && income < 3000 && gastos >= income) { //revisar esto porque no funcionaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-        console.log("No le podremos dar tarjetas ya que su ingreso es menor a 3000 y a su vez sus gastos son igules o mayores a su ingreso.");
-        alert("No le podremos dar tarjetas ya que su ingreso es menor a 3000 y a su vez sus gastos son igules o mayores a su ingreso.");
-    }else {
-        console.log("Fue aceptado para recibir nuestras tarjetas.Nos estaremos conctactando con usted");
-        alert("Fue aceptado para recibir nuestras tarjetas.Nos estaremos conctactando con usted");
+        console.log(firstlastName(), "\n", "No le podremos dar tarjetas.");
+        alert(firstlastName() + "\n" + "No le podremos dar tarjetas.");
+    }
+    else if ((job =="si" && gastos >= income)
+            || (job =="Si" && gastos >= income)
+            || (job =="yes" && gastos >= income)
+            || (job =="Yes" && gastos >= income)) {
+        console.log(firstlastName(), "\n", "No le podremos dar tarjetas ya que sus gastos son iguales o mayores a sus ingresos.");
+        alert(firstlastName() + "\n" + "No le podremos dar tarjetas ya que sus gastos son iguales o mayores a sus ingresos.");   
+    }
+    else if (cupo < income*2) {
+        console.log(firstlastName(), "\n","No le podremos dar tarjetas ya que su cupo es menor a sus ingresos x2.");
+        alert(firstlastName() + "\n" + "No le podremos dar tarjetas ya que su cupo es menor a sus ingresos x2.");
+    }
+    else if ((job == "no" && income < 3000 && gastos >= income)
+            || (job == "No" && income < 3000 && gastos >= income)){
+        console.log(firstlastName(), "\n", "No le podremos dar tarjetas ya que su ingreso es menor a 3000 y a su vez sus gastos son igules o mayores a sus ingresos.");
+        alert(firstlastName() + "\n" + "No le podremos dar tarjetas ya que su ingreso es menor a 3000 y a su vez sus gastos son iguales o mayores a sus ingresos.");
+    }
+    else if (cantidadDeTarjetas > 5){
+        console.log(firstlastName(), "\n", "No le podremos dar tarjeta usted ya tiene muchas tarjetas de otros bancos");
+        alert(firstlastName() + "\n" + "No le podremos dar tarjeta usted ya tiene muchas tarjetas de otros bancos");
+    }
+    else if (family > 10){
+        console.log(firstlastName(), "\n", "No le podremos dar tarjeta");
+        alert(firstlastName() + "\n" + "No le podremos dar tarjeta");
+    }
+    else {
+        console.log(firstlastName(), "\n", "Fue aceptado para recibir nuestras tarjetas. Nos estaremos contactando con usted");
+        alert(firstlastName() + "\n" + "Fue aceptado para recibir nuestras tarjetas. Nos estaremos contactando con usted");
     }
 
-    
 
-
-
-/* Otra forma de resolver el formulario por cantidad de Hijos
-        switch (family){
-            case 1:
-                let nameHijos = prompt("Ingrese nombre de su hijo");
-                alert("Hijo numero 1" + nameHijos)
-                break;
-            case 2:
-                for (index = 1; index <= 2; index++){
-                    let nameHijos = prompt("Ingrese nombre de su hijo N" + index)          
-                }
-                break;
-            case 3:
-                for (index = 1; index <= 3; index++){
-                    let nameHijos = prompt("Ingrese nombre de su hijo N" + index)          
-                }
-                break;
-            case 4:
-                for (index = 1; index <= 4; index++){
-                    let nameHijos = prompt("Ingrese nombre de su hijo N" + index)          
-                }
-                break;
-            default:
-            break;         
-                }
-                if (family >= 5){
-                    console.log("No le podremos dar tarjeta");
-                    alert("No le podremos dar tarjeta")
-                }
-                
-            }
-*/
-            
 
 
 
